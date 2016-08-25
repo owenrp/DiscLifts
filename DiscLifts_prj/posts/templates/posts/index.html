@@ -1,0 +1,75 @@
+{% extends 'disclifts/base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}Home ¦{% endblock title %}
+{% block content%}
+<div class="container container-reduced-top-padding">
+    <img id="banner-img" class="" src="static/img/dl_banner.png">
+    {% if not request.user.is_authenticated %}
+
+    <div class="jumbotron" id="jumbotron-signup">
+        <!--<h2>Disc Lifts</h2>-->
+        <p>The site that helps you find or offer car pooling for frisbee tournaments. Help make the world go a little
+            greener, share a ride.</p>
+        <p></p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="/accounts/signup/" role="button">Signup! &raquo;</a>
+            <a class="btn btn-lg btn-primary" href="{% url 'posts:how_it_works' %}" role="button">How it
+                works &raquo;</a>
+        </p>
+    </div>
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col-sm-8">
+            <p>
+            <h2>Upcoming events</h2>
+            <h4>Select an event to see all posts - <a href="{% url 'posts:events' %}">or view all events here.</a></h4>
+            </p>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Posts</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for instance in queryset %}
+                <tr class="clickable-row" data-url="{{ instance.get_absolute_url }}">
+                    <td>{{instance.title}}</td>
+                    <td>{{instance.location}}</td>
+                    {% if instance.start_date|date:"m" == instance.end_date|date:"m" %}
+                    <td>{{instance.start_date|date:"d"}}-{{instance.end_date|date:"d M Y"}}</td>
+                    {% else %}
+                    <td>{{instance.start_date|date:"d M"}} - {{instance.end_date|date:"d M Y"}}</td>
+                    {% endif %}
+                    <td>{{instance.posts_set.all.count}}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div class="jumbotron" style="background-color: white   ">
+                <h2 id="jumbotron-title-homepage">Get involved</h2>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'posts:add_event' %}" role="button">Create new
+                    event &raquo;</a></p>
+                <p><a class="btn btn-primary btn-lg" href="{% url 'posts:add_post' %}" role="button">Create new
+                    post &raquo;</a>
+                </p>
+                {% if request.user.is_authenticated %}
+                <p><a class="btn btn-primary btn-lg" href="{% url 'posts:how_it_works' %}" role="button">How it
+                    works &raquo;</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,60 @@
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'posts:index' %}">Disc Lifts</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'posts:index' %}">Home</a></li>
+                <li><a href="{% url 'posts:events' %}">Events</a></li>
+                <!--<li><a href="#contact">Contact</a></li>-->
+                <!--<li class="dropdown">-->
+                <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li class="dropdown-header">Nav header</li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+                <!--<li><a href="#">One more separated link</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'postman:inbox' %}">{% if postman_unread_count %}<i
+                        class="fa fa-envelope red"></i>{%else%}<i
+                        class="fa fa-envelope-o "></i>{%endif%}</a></li>
+                <li><a href="{% url 'user:profile' request.user.id %}"><i class="fa fa-user"></i></i> {{ request.user }}</a>
+                </li>
+                <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                {% endif %}
+            </ul>
+
+            {% if not request.user.is_authenticated %}
+            <form id="nav-bar-login" class="navbar-form navbar-right" method="post" action="{% url 'account_login' %}">{% csrf_token %}
+                <div class="form-group">
+                    <!--The name element has to be the same as the name element as the one used by allauth, as does the password name element-->
+                    <input type="text" class="form-control" name="login" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-default">Login</button>
+
+
+            </form>
+            {% endif %}
+
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

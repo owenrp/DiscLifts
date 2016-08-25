@@ -1,0 +1,45 @@
+{% extends 'disclifts/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Update Profile ¦{% endblock title %}</title>
+
+</head>
+<body>
+
+{% block content %}
+<div class="container">
+    <h2>{{ request.user }} update your profile</h2>
+    <div class="row">
+        <div class="col-sm-6">
+            <form action="/user/update_profile/" method="POST">
+                {% csrf_token %}
+
+
+                <table class="table">
+                    {{ user_form.as_table }}
+                    <tbody>
+                    <tr>
+                        <th><label>Email notification:</label></th>
+                        <th>{{ user_profile_form.email_notification }}</th>
+                    </tr>
+                    </tbody>
+                    <!--<label>Email notification:</label>-->
+                    <!--{{ user_profile_form.email_notification }} <br>-->
+                </table>
+
+                <input type="submit" value="Save">
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
+</body>
+</html>

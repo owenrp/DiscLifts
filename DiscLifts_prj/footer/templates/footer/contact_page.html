@@ -1,0 +1,44 @@
+{% extends 'disclifts/base.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Contact Page ¦{% endblock title %}</title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, comments, critics or ideas for improving the site please let us know. We want
+                this
+                site to grow within the community and for that to happen we need you, the user, to help us make it
+                better.</p>
+            <p>So if you have any recommendations about how to make the site better, or maybe there is something that
+                really annoys you about the site, either way please let us know and we will do everything in our power
+                to
+                continuously improve this site for the community. </p>
+            {# The message us button through the internal messaging system only shows if the user is logged in #}
+            {% if request.user.is_authenticated %}
+            <p>Use the contact form to send us an email or you can send us a direct message from your account, just
+                press
+                the button below.</p>
+            <a role="button" class="btn btn-primary" href="{% url 'postman:write' 'opadmin' %}">Message Us!</a>
+            {% endif %}
+        </div> <!--col-->
+        <div class="col-sm-6">
+            <p>{{ confirmation_send_message }}</p>
+            {% if not confirmation_send_message %}
+            <h3>Send us a message!</h3>
+            <form role="form" action="" method="post">
+                {% csrf_token %}
+                {{ contact_form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+            {% endif %}
+        </div>
+    </div><!--row-->
+</div>
+{% endblock content %}
+</body>
+</html>

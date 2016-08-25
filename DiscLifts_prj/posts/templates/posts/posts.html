@@ -1,0 +1,83 @@
+{% extends 'disclifts/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title ¦{% endblock title %}
+    </title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+    <h2>
+        <a class="posts_header" href="{% url 'posts:event_posts' id=posts_instance.event_id %}">{{posts_instance.event}}
+        </a>
+        - Posted by <a class="posts_header" href="{% url 'user:profile' posts_instance.user_id %}">{{posts_instance.user}}</a>
+    </h2>
+    <div class="row">
+        <div class="col-sm-12">
+
+
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Lift Type</th>
+                    <th>Location</th>
+                    <th>Leaving Date</th>
+                    <th>Leaving time</th>
+                    <th>Return Date</th>
+                    <th>Spaces</th>
+                    <th>Fulfilled</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{% if posts_instance.lift_type == 'I have space' %}
+                        <i class="fa fa-car" aria-hidden="true"></i> I have space
+                        {% else %}
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> I need a ride
+                        {%endif%}
+                    </td>
+                    <td>{{posts_instance.location}}</td>
+                    <td>{{posts_instance.leaving_date}}</td>
+                    <td>{{ posts_instance.leaving_time }}</td>
+                    <td>{{ posts_instance.return_date }}</td>
+                    <td>{{posts_instance.spaces}}</td>
+                    <td><input type="checkbox" name="fulfilled" {% if posts_instance.fulfilled %}checked=""
+                               {%else%}{%endif%}
+                               disabled="true">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {% if posts_instance.comments != ""%}
+            <h3>Comments</h3>
+            <p class="posts_comments">{{posts_instance.comments}}</p>
+            {% endif %}
+        </div>
+        <div class="col-sm-6">
+            {% if current_user_id == posts_instance.user_id %}
+            <a role="button" class="btn btn-primary" href="{% url 'posts:edit_post' posts_instance.id %}">
+                Edit post
+            </a>
+            <a role="button" class="btn btn-danger" href="{% url 'posts:delete_post' posts_instance.id %}"
+               onclick="return confirm('Are you sure you want to delete your post?');">
+                Delete post
+            </a>
+            {% else %}
+            <a role="button" class="btn btn-primary" href="{% url 'postman:write' posts_instance.user %}">
+                Message {{posts_instance.user }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>

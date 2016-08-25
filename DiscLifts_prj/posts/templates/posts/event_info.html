@@ -1,0 +1,47 @@
+{% extends 'disclifts/base.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Event Info ¦{% endblock title %}</title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>{{ event_inst.title }} - <a href="{% url 'posts:event_posts' event_inst.id %}">View posts for this
+                event</a>
+            </h2>
+        </div>
+
+    </div>
+    <h4>
+        Created by - <a href="{% url 'user:profile' event_inst.user_id %}">{{event_inst.user}}</a>
+    </h4>
+    <div class="row">
+        <div class="col-sm-6">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Event location:</th>
+                    <th>{{ event_inst.location }}</th>
+                </tr>
+                <tr>
+                    <th>Start date:</th>
+                    <th>{{ event_inst.start_date }}</th>
+                </tr>
+                <tr>
+                    <th>End date:</th>
+                    <th>{{ event_inst.end_date }}</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <h4>More info:</h4>
+    {{ event_inst.content }}
+
+
+</div>
+{% endblock content %}
+</body>
+</html>

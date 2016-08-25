@@ -1,0 +1,37 @@
+{% load staticfiles%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title %}</title>
+    {% block extrahead %}{% endblock extrahead %}
+    {% include 'disclifts/head_css.html' %}
+
+
+</head>
+<body>
+{% include 'disclifts/nav_bar.html' %}
+
+
+<!--<div class="container">-->
+    {% block postman_menu %}
+    {% endblock postman_menu %}
+    {% block content %}
+    {% endblock %}
+
+
+<!--</div>-->
+
+<footer class="footer">
+    <div class="container" id="footer-menu">
+        <a href="{% url 'footer:tnc' %}">Terms and conditions</a>
+        <a href="{% url 'footer:privacy_policy' %}">Privacy policy</a>
+        <a href="#">About the site</a>
+        <a href="#">Sitemap</a>
+        <a href="{% url 'footer:contact_page' %}">Contact</a>
+    </div>
+</footer>
+{% include 'disclifts/js.html' %}
+</body>
+</html>

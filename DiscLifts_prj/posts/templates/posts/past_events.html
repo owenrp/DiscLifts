@@ -1,0 +1,67 @@
+{% extends 'disclifts/base.html' %}
+{% load staticfiles%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Past Events ¦{% endblock title %}
+    </title>
+</head>
+<body>
+{% block content%}
+<div class="container">
+    <h2>Past events</h2>
+    <h4>Select an event to see all posts</h4>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Posts</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for instance in events_queryset %}
+                <tr class="clickable-row" data-url="{{ instance.get_absolute_url }}">
+                    <td>{{instance.title}}</td>
+                    <td>{{instance.location}}</td>
+                    {% if instance.start_date|date:"m" == instance.end_date|date:"m" %}
+                    <td>{{instance.start_date|date:"d"}}-{{instance.end_date|date:"d M Y"}}</td>
+                    {% else %}
+                    <td>{{instance.start_date|date:"d M"}} - {{instance.end_date|date:"d M Y"}}</td>
+                    {% endif %}
+                    <td>{{ instance.posts_set.all.count }}</td>
+                    {# This gets all the posts with a foreign key relationship to model instance of the event, and #}
+                    {# counts how many there are. Note the p in .posts_set is lower case #}
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div> <!--col-->
+    </div> <!--row-->
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if events_queryset.has_previous %}
+            <a href="?page={{ events_queryset.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ events_queryset.number }} of {{ events_queryset.paginator.num_pages }}.
+        </span>
+
+        {% if events_queryset.has_next %}
+            <a href="?page={{ events_queryset.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+    </div>
+</div>
+{% endblock content %}
+
+</body>
+</html>

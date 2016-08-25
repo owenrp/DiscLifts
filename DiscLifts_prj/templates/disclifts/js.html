@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<!--Contains and loads all the js files in base.html-->
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/custom_js.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+<script type="text/javascript">
+    window.cookieconsent_options = {"message":"This website uses cookies to ensure you get the best experience on our website","dismiss":"Got it!","learnMore":"More info","link":null,"theme":"dark-floating"};
+
+</script>
+
+<script type="text/javascript"
+        src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
+<!-- End Cookie Consent plugin -->
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>

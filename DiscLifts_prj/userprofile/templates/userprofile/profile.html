@@ -1,0 +1,139 @@
+{% extends 'disclifts/base.html' %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Profile ¦{% endblock title %}</title>
+
+</head>
+<body>
+
+{% block content %}
+<div class="container container-reduced-top-padding">
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>Profile {{ user_profile.user.username }} id= {{ user_profile.user.id }}</h2>
+        </div>
+        <div class="col-sm-4 h2">
+            {% if current_user_id != user_profile.user.id %}
+            <a role="button" class="btn btn-primary" href="{% url 'postman:write' user_profile.user %}">
+                Message {{user_profile.user }}
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {% if current_user_id == user_profile.user.id %}
+            {# Current user is viewing their own profile #}
+            <div class="panel panel-default" style="border-color: #F35A05">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>First Name:</th>
+                        <th>{{ user_django_inst.first_name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Last Name:</th>
+                        <th>{{ user_django_inst.last_name }}</th>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <th>{{ user_django_inst.email }}</th>
+                    </tr>
+                    <tr>
+                        <th>Email notification:</th>
+                        <th>{{user_profile.email_notification}}</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="list-group profile-links">
+                <a class="list-group-item" href="{% url 'user:update_profile' %}">Edit profile settings</a>
+                <a class="list-group-item" href="{% url 'account_change_password' %}">Change password</a>
+                <a class="list-group-item" role="button" id="btn-delete-account"
+                   href="{% url 'user:delete_profile_request' %}"
+                   onclick="return confirm('Are you sure you want to delete your account?');">
+                    Delete account
+                </a>
+                <a class="list-group-item" href="{% url 'posts:events_user' user_profile.id %}"> View all events from
+                    {{user_django_inst.username}}</a>
+            </div>
+
+            {% else %}
+            {# Current user is viewing another users profile #}
+            <p>Date last signed in: {{ user_django_inst.last_login }} </p>
+            <a href="{% url 'posts:events_user' user_profile.id %}"> View all events from
+                {{user_django_inst.username}}</a><br>
+            {% endif %}
+
+
+        </div>
+    </div>
+
+    <h3>{{ user_django_inst.username }} post history</h3>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Lift Type</th>
+                    <th>Location</th>
+                    <th>Leaving date</th>
+                    <th>Leaving time</th>
+                    <th>Fulfilled</th>
+                    <th>Spaces</th>
+                    <th>Event</th>
+                </tr>
+                </thead>
+                {% for post_inst in user_posts_queryset %}
+
+                <tr class="clickable-row" data-url="{{ post_inst.get_absolute_url }}">
+                    <td>{% if post_inst.lift_type == 'I have space' %}
+                        <i class="fa fa-car" aria-hidden="true"></i> I have space
+                        {% else %}
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> I need a ride
+                        {%endif%}
+                    </td>
+                    <td>{{ post_inst.location }}</td>
+                    <td>{{ post_inst.leaving_date }}</td>
+                    <td>{{ post_inst.leaving_time }}</td>
+                    <td><input type="checkbox" name="fulfilled" {% if post_inst.fulfilled%} checked {%else%}{%endif%}
+                               disabled="true">
+                    </td>
+                    <td>{{ post_inst.spaces }}</td>
+                    <td>{{ post_inst.event }}</td>
+                    {% if current_user_id == user_profile.user.id %}
+                    <td>
+                        <a role="button" class="btn btn-primary" href="{% url 'posts:edit_post' post_inst.id %}">
+                            Edit post
+                        </a>
+                    </td>
+                    {% endif%}
+                </tr>
+                {% endfor %}
+
+            </table>
+            <div class="pagination">
+            <span class="step-links">
+                {% if user_posts_queryset.has_previous %}
+                <a href="?page={{ user_posts_queryset.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ user_posts_queryset.number }} of {{ user_posts_queryset.paginator.num_pages }}.
+                </span>
+
+                {% if user_posts_queryset.has_next %}
+                <a href="?page={{ user_posts_queryset.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+            </div>
+        </div>
+
+    </div>
+
+</div> <!--container-->
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,148 @@
+.posts_header{
+color: #333;
+}
+
+.posts_comments{
+
+}
+
+.clickable-row:hover{
+cursor: pointer
+}
+
+.red{
+color: red
+}
+
+.footer{
+background: #242729;
+color: #9fa6ad;
+}
+
+.footer a {
+padding-right:30px;
+color: #9fa6ad;
+}
+
+#footer-menu{
+padding-top: 10px;
+}
+
+.btn-primary {
+    background-color: #F35A05;
+    border-color: #F35A05;
+}
+
+.btn-primary:hover {
+    background-color: #e15205;
+    border-color: #e15205;
+}
+
+a {
+    color: #F35A05;
+}
+
+a:focus, a:hover {
+    color: #e15205;
+}
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #F35A05;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #F35A05;
+}
+
+#jumbotron-title-homepage{
+margin-bottom: 20px;
+}
+
+form{
+margin-bottom: 30px;
+}
+
+.container-reduced-top-padding{
+padding-top: 0px!important;
+}
+
+#banner-img{
+height: 30%;
+width: 30%;
+margin: auto;
+display: block;
+}
+
+#jumbotron-signup{
+padding-top:30px;
+padding-bottom:20px;
+}
+
+/*How it works page styling*/
+.btn-demo:visited{
+background-color: #F35A05;
+border-color: #F35A05;
+}
+
+.btn-demo:focus{
+background-color: #F35A05;
+border-color: #F35A05;
+}
+
+.btn-demo:active{
+background-color: #F35A05;
+border-color: #F35A05;
+}
+
+.explanation{
+counter-reset: my-counter;
+
+}
+.explanation dt{
+padding-left: 50px;
+position: relative;
+margin-bottom: 30px;
+padding-top: 20px;
+}
+
+.explanation dt:before{
+content: counter(my-counter);
+counter-increment: my-counter;
+font-size: 50px;
+left: 0;
+top: 0;
+position: absolute;
+}
+
+h3{
+margin-top: 50px;
+}
+
+.no-event{
+margin-bottom: 50px;
+}
+
+/*Removing left padding from navbar login box as it was overlapping with the buttons on smaller screens*/
+#nav-bar-login{
+padding-left: 0px;
+}
+
+/*Styling allauth sign in page*/
+#jumbotron-why-signup > h2{
+margin-top:20px;
+margin-bottom:20px;
+}
+#jumbotron-why-signup{
+background-color:inherit;
+padding-bottom: 30px;
+padding-top:10px;
+padding-left: 40px;
+padding-right: 40px;
+border-color: #F35A05;
+border-style: none;
+}
+
+#jumbotron-why-signup > ul li p{
+font-size: 18px;
+
+}

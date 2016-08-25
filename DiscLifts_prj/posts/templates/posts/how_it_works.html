@@ -1,0 +1,93 @@
+{% extends 'disclifts/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}How it works ¦{% endblock title %}</title>
+</head>
+<body>
+{% block content %}
+<div class="container container-reduced-top-padding">
+    <h2>
+        How it all works
+    </h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="explanation-box">
+                <h3>
+                    Got some extra space in your car?
+                </h3>
+                <div class="explanation">
+                    <dl>
+                        <dt>Find the event you are driving to on the <a href="{% url 'posts:events' %}">Events page</a>
+                            or
+                            the
+                            homepage will always show the next 5
+                            events.
+                        </dt>
+                        <dt>Press the
+                            <button class="btn btn-primary btn-lg btn-demo" role="button">Create new
+                                post
+                            </button>
+                            and create a new post with details about when and where you are leaving from.
+                        </dt>
+                        <dt>Sit back and relax, you will recieve an email notification when someone responds to your
+                            post.
+                        </dt>
+                        <dt>Opt - Be proactive, browse the event for 'I need a ride' posts and message them to help them
+                            out.
+                        </dt>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12" id="need-lift-explanation">
+            <div class="explanation-box">
+                <h3>
+                    Need a lift?
+                </h3>
+                <dl class="explanation">
+                    <dt>Find the event you are going to on the <a href="{% url 'posts:events' %}">Events page</a> or the
+                        homepage
+                        will always show the next 5
+                        events.
+                    </dt>
+                    <dt>Press the
+                        <button class="btn btn-primary btn-lg btn-demo" role="button">Create new
+                            post
+                        </button>
+                        and create a new post with details about needing a ride.
+                    </dt>
+                    <dt>Browse the event for posts that show they have space.</dt>
+                    <dt>If you find a post simply click on it for further details and message the user with the
+                        <button class="btn btn-primary btn-demo">
+                            Message user
+                        </button>
+                        which will take you to a write a message page.
+                    </dt>
+                </dl>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="explanation-box no-event">
+                <h3>
+                    Can't find an event?
+                </h3>
+                <dl>
+                    <dt>You can create a new event easily with the create new event form found <a
+                        href="{% url 'posts:add_event' %}">here</a>.</dt>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>

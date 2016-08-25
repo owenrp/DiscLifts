@@ -1,0 +1,91 @@
+{% extends 'disclifts/base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Event posts ¦{% endblock title %}
+    </title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-8">
+            <h2>{{ event_id }}</h2>
+            <h4><a href="{% url 'posts:event_info' event_id.id %}">View event info</a></h4>
+        </div>
+        <div class="col-sm-4 h2">
+            <a class="btn btn-primary btn-lg" href="{% url 'posts:add_post' event_id.id %}" role="button">Create new
+                post</a>
+            {% if current_user.id == event_id.user_id %}
+            <a class="btn btn-primary btn-lg" href="{% url 'posts:edit_event' event_id.id %}" role="button">Edit
+                event</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Lift Type</th>
+                    <th>Location</th>
+                    <th>Spaces</th>
+                    <th>Leaving date</th>
+                    <th>Leaving time</th>
+                    <th>Return Date</th>
+                    <th>Fulfilled</th>
+                </tr>
+                </thead>
+                {% for inst in posts_queryset %}
+
+                <tr class="clickable-row" data-url="{{ inst.get_absolute_url }}">
+                    <td>{% if inst.lift_type == 'I have space' %}
+                        <i class="fa fa-car" aria-hidden="true"></i> I have space
+                        {% else %}
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i> I need a ride
+                        {%endif%}
+                    </td>
+                    <td>{{ inst.location }}</td>
+                    <td>{{ inst.spaces }}</td>
+                    <td>{{ inst.leaving_date }}</td>
+                    <td>{{ inst.leaving_time }}</td>
+                    <td>{{ inst.return_date }}</td>
+                    <td><input type="checkbox" name="fulfilled" {% if inst.fulfilled%} checked="" {%else%}{%endif%}
+                               disabled="true"></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+            {% if no_posts %}
+            <p>Sadly there are no posts here, be the first and get the sharing started</p>
+            <!--event_id is a queryset of Events.objects.get(id=id). The event_id.id gets the id of the event to send in the url to the add_posts view-->
+            <p><a class="btn btn-primary btn-lg" href="{% url 'posts:add_post' event_id.id %}" role="button">Create new
+                post</a></p>
+
+            {% else %}
+            <div class="pagination">
+            <span class="step-links">
+                {% if posts_queryset.has_previous %}
+                <a href="?page={{ posts_queryset.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ posts_queryset.number }} of {{ posts_queryset.paginator.num_pages }}.
+                </span>
+
+                {% if posts_queryset.has_next %}
+                <a href="?page={{ posts_queryset.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>
