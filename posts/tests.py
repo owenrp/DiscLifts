@@ -54,6 +54,7 @@ class PostsViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         # assertContains will check for a string of text in the html that has been returned from the client request.
         self.assertContains(response, 'Upcoming events')
+        self.assertTemplateUsed(template_name='posts/index.html')
 
     def test_events_view(self):
         """
@@ -65,6 +66,7 @@ class PostsViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         # assertContains will check for a string of text in the html that has been returned from the client request.
         self.assertContains(response, 'Upcoming events')
+        self.assertTemplateUsed(template_name='posts/events.html')
 
     def test_event_posts_view(self):
         """
@@ -76,6 +78,7 @@ class PostsViewTests(TestCase):
         response = self.client.get(reverse('posts:event_posts', args=[event_test.id]))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'View event info')
+        self.assertTemplateUsed(template_name='posts/event_posts.html')
 
     # Fails but don't know why. Issue #1 in github
     # def test_posts_view(self):
@@ -98,6 +101,7 @@ class PostsViewTests(TestCase):
         """
         response = self.client.get(reverse('posts:past_events'))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(template_name='posts/past_events.html')
 
     def test_events_user_view(self):
         """
@@ -107,6 +111,7 @@ class PostsViewTests(TestCase):
         user = User.objects.create_user('test')
         response = self.client.get(reverse('posts:events_user', args=[user.id]))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(template_name='posts/events_user.html')
 
     def test_how_it_works_view(self):
         """
@@ -115,6 +120,7 @@ class PostsViewTests(TestCase):
         """
         response = self.client.get(reverse('posts:how_it_works'))
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(template_name='posts/how_it_works.html')
 
     def test_add_post_no_login(self):
         """
