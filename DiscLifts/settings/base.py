@@ -15,6 +15,7 @@ import os
 from django.core.exceptions import ImproperlyConfigured
 # import dj_database_url
 
+# Checks whether environment variables have been loaded properly , if not, ImproperlyConfigured error raised.
 def get_env_variable(var_name):
     try:
         return os.environ[var_name]

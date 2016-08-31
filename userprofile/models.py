@@ -9,7 +9,7 @@ class UserProfile(models.Model):
     # class Meta:
     #     app_label = 'userprofile'
     # This links to the user to the user provided by django auth
-    user = models.OneToOneField(User)
+    user = models.OneToOneField(User, related_name="profile")
     email_notification = models.BooleanField(default=True)
 
     def __str__(self):
