@@ -1,0 +1,158 @@
+[{
+		"model" : "posts.events",
+		"pk" : 1,
+		"fields" : {
+			"title" : "UKU Fake tour 7",
+			"content" : "Content stuff",
+			"updated" : "2016-05-15T13:41:51.986Z",
+			"timestamp" : "2016-05-15T13:41:51.986Z",
+			"location" : "Manchester",
+			"start_date" : "2016-05-07",
+			"end_date" : "2016-05-08",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 2,
+		"fields" : {
+			"title" : "Fake tour 8",
+			"content" : "hthtrwh",
+			"updated" : "2016-05-15T15:14:11.761Z",
+			"timestamp" : "2016-05-15T15:14:11.761Z",
+			"location" : "sw12",
+			"start_date" : "2016-07-13",
+			"end_date" : "2016-07-15",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 3,
+		"fields" : {
+			"title" : "Open & Womens Tour 1 London Calling",
+			"content" : "London Calling returns to the fields of London Colney for 2016.",
+			"updated" : "2016-05-19T09:55:17.417Z",
+			"timestamp" : "2016-05-19T09:55:17.417Z",
+			"location" : "UCL Sports Ground",
+			"start_date" : "2016-05-28",
+			"end_date" : "2016-05-29",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 5,
+		"fields" : {
+			"title" : "World Ultimate & Guts Championships 2016",
+			"content" : "Event date: \r\n19 Jun 2016 - 09:00 - 25 Jun 2016 - 19:00\r\nEvent details: \r\nThe members, volunteers and staff of UK Ultimate are delighted to be given the opportunity to host the 2016 WFDF World Ultimate & Guts Championships. We have a really beautiful venue on the outskirts of London, and we look forward to welcoming you. We will be doing our best to make sure you have a fantastic experience here.\r\n\r\nEvent website: \r\nhttp://wugc2016.com/\r\n\r\nLocation\r\n\r\nUCL Sports Ground\r\nBell Lane, London Colney\r\nSt. Albans, HRT AL2 1BZ\r\nUnited Kingdom",
+			"updated" : "2016-05-30T03:14:32.989Z",
+			"timestamp" : "2016-05-30T03:14:32.989Z",
+			"location" : "UCL Sports Ground",
+			"start_date" : "2016-06-19",
+			"end_date" : "2016-06-25",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 6,
+		"fields" : {
+			"title" : "UKU Open & Women's Tour 2",
+			"content" : "Event date: \r\n9 Jul 2016 (All day) - 10 Jul 2016 (All day)\r\nEvent details: \r\nUKU OWT2 returns once again to Grove Farm, Nottingham. This is the same venue as used for OWT1 2015.  The venue doesn\u2019t have its own postcode, but NG7 2SA will get you onto the right entry road.",
+			"updated" : "2016-05-30T03:16:45.630Z",
+			"timestamp" : "2016-05-30T03:16:45.630Z",
+			"location" : "NG7 2SA",
+			"start_date" : "2016-07-09",
+			"end_date" : "2016-07-10",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 8,
+		"fields" : {
+			"title" : "UKU Open & Women's Tour 3",
+			"content" : "Event date: \r\n23 Jul 2016 (All day) - 24 Jul 2016 (All day)\r\nEvent details: \r\nOWT3 2016 once again returns to Llanrumney, nr. Cardiff.\r\nThe tournament will once again be run by Jack Goolden on behalf of UK Ultimate, and all the info can be found on his site here: http://malago.co.uk/tour/index.html",
+			"updated" : "2016-06-21T12:33:36.842Z",
+			"timestamp" : "2016-05-30T04:41:27.114Z",
+			"location" : "CF3 4JN",
+			"start_date" : "2016-07-23",
+			"end_date" : "2016-07-24",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 9,
+		"fields" : {
+			"title" : "Fake fake",
+			"content" : "commentsssss",
+			"updated" : "2016-06-04T16:03:39.394Z",
+			"timestamp" : "2016-06-04T16:03:39.394Z",
+			"location" : "Somewhere",
+			"start_date" : "2016-06-29",
+			"end_date" : "2016-07-01",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 10,
+		"fields" : {
+			"title" : "Fakey fake",
+			"content" : "Words",
+			"updated" : "2016-06-05T02:23:26.416Z",
+			"timestamp" : "2016-06-05T02:23:26.416Z",
+			"location" : "Here",
+			"start_date" : "2016-08-27",
+			"end_date" : "2016-09-01",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 11,
+		"fields" : {
+			"title" : "An event",
+			"content" : "It's an event",
+			"updated" : "2016-07-17T09:45:37.982Z",
+			"timestamp" : "2016-06-19T15:07:19.063Z",
+			"location" : "Ulis22",
+			"start_date" : "2016-06-21",
+			"end_date" : "2016-06-23",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 12,
+		"fields" : {
+			"title" : "Test to delete",
+			"content" : "Test",
+			"updated" : "2016-06-21T07:45:00.970Z",
+			"timestamp" : "2016-06-21T07:45:00.970Z",
+			"location" : "sw22",
+			"start_date" : "2016-06-24",
+			"end_date" : "2016-06-26",
+			"user" : 6
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 13,
+		"fields" : {
+			"title" : "A beautiful test",
+			"content" : "A test a test a beautiful test.",
+			"updated" : "2016-07-17T11:34:30.757Z",
+			"timestamp" : "2016-07-17T11:29:09.537Z",
+			"location" : "Greenich",
+			"start_date" : "2016-08-26",
+			"end_date" : "2016-08-28",
+			"user" : 1
+		}
+	}, {
+		"model" : "posts.events",
+		"pk" : 17,
+		"fields" : {
+			"title" : "Testing event",
+			"content" : "Test content",
+			"updated" : "2016-08-02T12:20:45.440Z",
+			"timestamp" : "2016-08-02T12:20:45.440Z",
+			"location" : "Test location",
+			"start_date" : "2016-09-01",
+			"end_date" : "2016-09-04",
+			"user" : 1
+		}
+	}
+]

@@ -22,7 +22,9 @@ class UserprofileViewTests(TestCase):
         response = self.c.get('/user/profile/1', follow=True)
         # print(response.content)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Allauth login template')
+        # self.assertContains(response, 'Allauth login template')
+        self.assertTemplateUsed(template_name='account/login.html')
+
 
     #
     def test_profile_view_user_logged_in(self):
@@ -37,15 +39,18 @@ class UserprofileViewTests(TestCase):
         # response = self.c.get('user/profile/%d/' % self.user.id)
         response = self.c.get(reverse('user:profile', kwargs={'profile_id' : self.user.id}))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'View all events from')
+        # self.assertContains(response, 'View all events from')
+        self.assertTemplateUsed(template_name='account/login.html')
 
     def test_edit_profile_not_logged_in(self):
         """
         Test should redirect user to automatic login page as users have to be signed in to view this view.
         """
         response = self.c.get('/user/update_profile/', follow=True)
+        # print(response)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Allauth login template')
+        # self.assertContains(response, 'Allauth login template')
+        self.assertTemplateUsed(template_name='account/login.html')
 
     def test_edit_profile_user_logged_in(self):
         """
@@ -55,6 +60,8 @@ class UserprofileViewTests(TestCase):
         response = self.c.get('/user/update_profile/')
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'update your profile')
+        self.assertTemplateUsed(template_name='userprofile/update_profile.html')
+
 
 
 
