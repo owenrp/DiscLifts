@@ -2,14 +2,8 @@
 {% load staticfiles%}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Events ¦{% endblock title %}
-    </title>
-</head>
-<body>
+{% block title %}Events ¦{% endblock title %}
+
 {% block content%}
 <div class="container">
     <h2>Upcoming events</h2>
@@ -66,6 +60,3 @@
     </div>
 </div>
 {% endblock content %}
-
-</body>
-</html>

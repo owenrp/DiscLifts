@@ -1,11 +1,8 @@
 {% extends 'disclifts/base.html' %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+{% block title %}Events {{ user_inst.username }} ¦{% endblock title %}
+
 {% block content %}
 <div class="container">
 
@@ -68,5 +65,3 @@
     </div>
 </div>
 {% endblock content %}
-</body>
-</html>

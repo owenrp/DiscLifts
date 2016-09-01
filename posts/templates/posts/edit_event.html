@@ -1,19 +1,11 @@
 {% extends 'disclifts/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}{{ page_title }} ¦{% endblock title %}</title>
-</head>
-<body>
+{% block title %}Edit Event ¦{% endblock title %}
+
 {% block content %}
 <div class="container container-reduced-top-padding">
-    <h2>
-        {{ page_title }} <a role="button" class="btn btn-danger" href="{% url 'posts:delete_event' event_inst.id %}"
-                            onclick="return confirm('Are you sure you want to delete this event?');">
-        Delete event
-    </a>
+    <h2> {{ page_title }} <a role="button" class="btn btn-danger" href="{% url 'posts:delete_event' event_inst.id %}"
+                             onclick="return confirm('Are you sure you want to delete this event?');">Delete event </a>
     </h2>
     <div class="row">
         <div class="col-sm-12">
@@ -28,5 +20,3 @@
     </div>
 </div>
 {% endblock content %}
-</body>
-</html>

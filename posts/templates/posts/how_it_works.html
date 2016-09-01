@@ -1,12 +1,7 @@
 {% extends 'disclifts/base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}How it works ¦{% endblock title %}</title>
-</head>
-<body>
+{% block title %}How it works ¦{% endblock title %}
+
 {% block content %}
 <div class="container container-reduced-top-padding">
     <h2>
@@ -81,7 +76,8 @@
                 </h3>
                 <dl>
                     <dt>You can create a new event easily with the create new event form found <a
-                        href="{% url 'posts:add_event' %}">here</a>.</dt>
+                            href="{% url 'posts:add_event' %}">here</a>.
+                    </dt>
                 </dl>
 
             </div>
@@ -89,5 +85,3 @@
     </div>
 </div>
 {% endblock content %}
-</body>
-</html>
