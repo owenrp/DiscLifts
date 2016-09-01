@@ -5,26 +5,4 @@
 			"user" : 1,
 			"email_notification" : true
 		}
-	}, {
-		"model" : "userprofile.userprofile",
-		"pk" : 3,
-		"fields" : {
-			"user" : 5,
-			"email_notification" : true
-		}
-	}, {
-		"model" : "userprofile.userprofile",
-		"pk" : 4,
-		"fields" : {
-			"user" : 6,
-			"email_notification" : true
-		}
-	}, {
-		"model" : "userprofile.userprofile",
-		"pk" : 5,
-		"fields" : {
-			"user" : 8,
-			"email_notification" : false
-		}
-	}
-]
+	}]

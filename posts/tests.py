@@ -7,6 +7,8 @@ from django.utils import timezone
 # from DiscLifts_prj.userprofile.models import UserProfile
 
 from .models import Events, Posts, User
+
+
 # from ..userprofile.models import UserProfile
 
 
@@ -128,21 +130,33 @@ class PostsViewTests(TestCase):
         """
         response = self.client.get('/add_post/', follow=True)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Allauth login template')
+        self.assertTemplateUsed(template_name='accounts/login.html')
 
-    # def test_add_post_logged_in(self):
-    #     """
-    #     Add post page should appear.
-    #     :return:
-    #     """
-    #     self.user = User.objects.create_user(username="test", email="test@test.com", password="test")
-    #     self.userprofile = UserProfile.objects.get(pk=self.user.id)
-    #     self.client.login(username='test', password='test')
-    #     response = self.client.get('/add_post/', follow=True)
-    #     self.assertEqual(response.status_code, 200)
-    #     self.assertContains(response, 'Add post template')
+        # def test_add_post_logged_in(self):
+        #     """
+        #     Add post page should appear.
+        #     :return:
+        #     """
+        #     self.user = User.objects.create_user(username="test", email="test@test.com", password="test")
+        #     self.userprofile = UserProfile.objects.get(pk=self.user.id)
+        #     self.client.login(username='test', password='test')
+        #     response = self.client.get('/add_post/', follow=True)
+        #     self.assertEqual(response.status_code, 200)
+        #     self.assertContains(response, 'Add post template')
+
 
 # def test__view(self):
 #     response = self.client.get(reverse('posts:'))
 #     self.assertEqual(response.status_code, 200)
 
+class PostsModelTests(TestCase):
+    fixtures = ["db_test_data_user.json", "db_test_data_userprofile.json", "db_test_data_posts_events.json",
+                "db_test_data_posts_posts.json"]
+
+    def test_qs_future_events(self):
+        """
+        Test should return queryset containing all the events that have an end date greater than today.
+        :return:
+        """
+        print(Events.objects.future_events())
+        self.assertEqual(len(Events.objects.future_events()),2)

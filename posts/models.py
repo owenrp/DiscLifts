@@ -1,9 +1,20 @@
+import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 
 # Create your models here.
+class EventsManager(models.Manager):
+    def future_events(self):
+        future_events_qs = Events.objects.filter(end_date__gte=datetime.date.today()).order_by('start_date')
+        return future_events_qs
+
+    def past_events(self):
+        past_events_qs = Events.objects.filter(end_date__lte=datetime.date.today()).order_by('start_date')
+        return past_events_qs
+
 class Events(models.Model):
     title = models.CharField(max_length=120)
     content = models.TextField()
@@ -23,6 +34,8 @@ class Events(models.Model):
     def get_absolute_url(self):
         return reverse('posts:event_posts', kwargs={'id': self.id})
         # return "/posts/events/%s" %(self.id)
+
+    objects = EventsManager()
 
 
 class Posts(models.Model):
@@ -51,3 +64,10 @@ class Posts(models.Model):
 
     def get_absolute_url(self):
         return reverse('posts:posts', kwargs={'id': self.id})
+
+
+
+class EventsManager(models.Manager):
+    def future_events(self):
+        future_events_qs = Events.objects.filter(end_date__gte=datetime.date.today()).order_by('start_date')
+        return future_events_qs

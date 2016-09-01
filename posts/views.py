@@ -21,7 +21,7 @@ def index(request):
 
     # A queryset of events filtered by the end_date being greater than today, and then ordered by the start_date
     # [:5] limits the queryset to show the first 5 results
-    queryset = Events.objects.filter(end_date__gte=datetime.date.today()).order_by('start_date')[:5]
+    queryset = Events.objects.future_events().order_by('start_date')[:5]
     context = {
         # These are template context variables
         'title': title,
@@ -34,7 +34,7 @@ def events(request):
     # Events page - shows all events
     # Query set of the posts to show how many posts are for each event
     posts_queryset = Posts.objects.all()
-    events_queryset = Events.objects.filter(end_date__gte=datetime.date.today()).order_by('start_date')
+    events_queryset = Events.objects.future_events()
 
     events_qs_paginator = create_pagination(request, events_queryset, 10)
 
@@ -117,8 +117,7 @@ def add_post(request, event_id=None):
             add_post_form = AddPostForm()
 
     # The add_post_form event field only shows events that are in the future
-    add_post_form.fields['event'].queryset = Events.objects.filter(end_date__gte=datetime.date.today()).order_by(
-        'start_date')
+    add_post_form.fields['event'].queryset = Events.objects.future_events()
 
     context = {
         'add_post_text': 'Please enter details below',
@@ -182,8 +181,7 @@ def edit_post(request, post_id):
     # print(event_inst.end_date)
     # If post is for event in the future all the events show up in the event drop down
     if event_inst.end_date > datetime.date.today():
-        add_post_form.fields['event'].queryset = Events.objects.filter(end_date__gte=datetime.date.today()).order_by(
-            'start_date')
+        add_post_form.fields['event'].queryset = Events.objects.future_events()
 
     context = {
         'post_form': add_post_form,
@@ -196,7 +194,7 @@ def past_events(request):
     # Events page - shows all events
     # Query set of the posts to show how many posts are for each event
     posts_queryset = Posts.objects.all()
-    events_queryset = Events.objects.filter(end_date__lte=datetime.date.today()).order_by('start_date')
+    events_queryset = Events.objects.past_events()
 
     events_qs_paginator = create_pagination(request, events_queryset, 15)
 
