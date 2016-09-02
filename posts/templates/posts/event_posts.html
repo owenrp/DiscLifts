@@ -10,7 +10,7 @@
             <h2>{{ event_id }}</h2>
             <h4><a href="{% url 'posts:event_info' event_id.id %}">View event info</a></h4>
         </div>
-        <div class="col-sm-4 h2">
+        <div class="col-sm-4 h2 a-btn">
             <a class="btn btn-primary btn-lg" href="{% url 'posts:add_post' event_id.id %}" role="button">Create new
                 post</a>
             {% if current_user.id == event_id.user_id %}

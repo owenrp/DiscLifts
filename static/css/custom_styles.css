@@ -146,3 +146,8 @@ border-style: none;
 font-size: 18px;
 
 }
+
+/* <a role=button> in the same row need vertical padding applied to them otherwise they touch when stacked*/
+.a-btn > a{
+margin: 3px 0px;
+}
