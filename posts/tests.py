@@ -159,4 +159,4 @@ class PostsModelTests(TestCase):
         :return:
         """
         print(Events.objects.future_events())
-        self.assertEqual(len(Events.objects.future_events()),2)
+        self.assertEqual(len(Events.objects.future_events()),1)
