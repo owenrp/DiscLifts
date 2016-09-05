@@ -27,11 +27,12 @@
     /*border: 2px solid red;*/
     border-radius: 12px;
     padding: 5px;
-    background-color: #FFB388;
+    /*background-color: #FFB388;*/
+    background-color: rgba(255,179,136,.3);
 }
 
 .conversation_box{
-max-height: 40em;
+max-height: 30em;
 min-height: 20em;
 overflow-y:scroll;
 overflow-x:hidden;
@@ -40,10 +41,18 @@ margin-bottom: 5px;
 border: solid;
 border-color: #F35A05;
 border-radius: 10px;
-border-width: 5px;
+border-width: 2px;
 
 }
 
 .container-reduced-top-padding{
 padding-top: 20px!important;
+}
+
+.pm_header{
+color: #bec2c9;
+}
+
+.message_from_user{
+background-color: rgba(136,212,255,.3);
 }

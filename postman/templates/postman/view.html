@@ -49,9 +49,10 @@
                     <button type="submit" onclick="this.form.action='{% url 'postman:archive' %}?next={{ next_url|urlencode }}'">{% trans "Archive" %}</button>
                 {% endif %}
             </span>
-            {% if reply_to_pk %}
-                <a href="{% url 'postman:reply' reply_to_pk %}?next={{ next_url|urlencode }}">{% trans "Reply" %}</a>
-            {% endif %}
+            <!--The following code is a reply link next to the archive button. Seems pointless to have with the reply box just underneath.-->
+            <!--{% if reply_to_pk %}-->
+                <!--<a href="{% url 'postman:reply' reply_to_pk %}?next={{ next_url|urlencode }}">{% trans "Reply" %}</a>-->
+            <!--{% endif %}-->
         </form>
         {% if reply_to_pk %}<hr />
             <h2>{% trans 'Reply' %}</h2>
