@@ -64,7 +64,7 @@
                 Delete post
             </a>
             {% else %}
-            <a role="button" class="btn btn-primary" href="{% url 'postman:write' posts_instance.user %}">
+            <a role="button" class="btn btn-primary" href="{% url 'postman:write' posts_instance.user %}?subject={{posts_instance.event}}">
                 Message {{posts_instance.user }}
             </a>
             {% endif %}
