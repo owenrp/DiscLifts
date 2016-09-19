@@ -350,7 +350,10 @@ class DisplayMixin(NamespaceMixin, object):
                 break
         else:
             received = None
+
+        msg_length = self.msgs.count()
         context.update({
+            'msg_length': msg_length,
             'pm_messages': self.msgs,
             'archived': archived,
             'reply_to_pk': received.pk if received else None,
