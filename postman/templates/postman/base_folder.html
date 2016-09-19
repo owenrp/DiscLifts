@@ -18,14 +18,6 @@ in the INSTALLED_APPS setting.
 <p>{% trans "Sorry, this page number is invalid." %}</p>
 {% else %}
 {% if pm_messages %}
-{% block pm_by_modes %}
-    <p>
-    <div id="pm_by_modes">
-<span class="pm_by_mode">{% if by_message %}<a href="{{ by_conversation_url }}">{% endif %}{% trans "by conversation" %}{% if by_message %}</a>{% endif %}</span>
-<span class="pm_by_mode">{% if by_conversation %}<a href="{{ by_message_url }}">{% endif %}{% trans "by message" %}{% if by_conversation %}</a>{% endif %}</span>
-</div>
-    </p>
-    {% endblock pm_by_modes %}
 <form action="{% block pm_form_action %}{% endblock %}" method="post">{% csrf_token %}
 {% block pm_form_buttons %}<span id="pm_buttons">
 {% block pm_delete_button %}<button type="submit" class="btn btn-danger" onclick="this.form.action='{% url 'postman:delete' %}'">{% trans "Delete" %}</button>{% endblock %}
