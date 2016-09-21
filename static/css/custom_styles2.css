@@ -29,29 +29,29 @@ padding-top: 10px;
 }
 
 .btn-primary {
-    background-color: #92CC3E;
-    border-color: #92CC3E;
+    background-color: #F35A05;
+    border-color: #F35A05;
 }
 
 .btn-primary:hover {
-    background-color: #7DB137;
-    border-color: #7DB137;
+    background-color: #e15205;
+    border-color: #e15205;
 }
 
 a {
-    color: #92CC3E;
+    color: #F35A05;
 }
 
 a:focus, a:hover {
-    color: #7DB137;
+    color: #e15205;
 }
 
 .navbar-default {
     background-color: #f8f8f8;
-    border-color: #92CC3E;
+    border-color: #F35A05;
 }
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
-    color: #92CC3E;
+    color: #F35A05;
 }
 
 #jumbotron-get-involved{
@@ -80,18 +80,18 @@ padding-bottom:20px;
 
 /*How it works page styling*/
 .btn-demo:visited{
-background-color: #92CC3E;
-border-color: #92CC3E;
+background-color: #F35A05;
+border-color: #F35A05;
 }
 
 .btn-demo:focus{
-background-color: #92CC3E;
-border-color: #92CC3E;
+background-color: #F35A05;
+border-color: #F35A05;
 }
 
 .btn-demo:active{
-background-color: #92CC3E;
-border-color: #92CC3E;
+background-color: #F35A05;
+border-color: #F35A05;
 }
 
 .explanation{
@@ -138,7 +138,7 @@ padding-bottom: 30px;
 padding-top:10px;
 padding-left: 40px;
 padding-right: 40px;
-border-color: #92CC3E;
+border-color: #F35A05;
 border-style: none;
 }
 
@@ -174,9 +174,5 @@ width: 191px;
 }
 
 .jumbotron-get-involved h2 {
-padding-bottom: 10px;
-}
-
-.clickable-row:hover{
-font-weight:bold;
+padding-bottom: 10px
 }

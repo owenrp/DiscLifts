@@ -8,30 +8,17 @@
     <img id="banner-img" class="" src="static/img/dl_banner.png">
     {% if not request.user.is_authenticated %}
 
-    <div class="signup-banner">
-        <h3 class="compact">
-            <strong>Help firsbee tournaments get greener.</strong>
-            Meet frisbee folk and sharing rides.
-            <span class="action-btns">
-            <a class="btn btn-lg btn-primary" href="/accounts/signup/" role="button">Signup!</a>
-            <a class="btn btn-lg btn-primary" href="{% url 'posts:how_it_works' %}" role="button">Learn more</a>
-        </span>
-        </h3>
-
+    <div class="jumbotron" id="jumbotron-signup">
+        <!--<h2>Disc Lifts</h2>-->
+        <p>The site that helps you find or offer car pooling for frisbee tournaments. Help make the world go a little
+            greener, share a ride.</p>
+        <p></p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="/accounts/signup/" role="button">Signup! &raquo;</a>
+            <a class="btn btn-lg btn-primary" href="{% url 'posts:how_it_works' %}" role="button">How it
+                works &raquo;</a>
+        </p>
     </div>
-
-
-    <!--<div class="jumbotron" id="jumbotron-signup">-->
-        <!--&lt;!&ndash;<h2>Disc Lifts</h2>&ndash;&gt;-->
-        <!--<p>The site that helps you find or offer car pooling for frisbee tournaments. Help make the world go a little-->
-            <!--greener, share a ride.</p>-->
-        <!--<p></p>-->
-        <!--<p>-->
-            <!--<a class="btn btn-lg btn-primary" href="/accounts/signup/" role="button">Signup! &raquo;</a>-->
-            <!--<a class="btn btn-lg btn-primary" href="{% url 'posts:how_it_works' %}" role="button">How it-->
-                <!--works &raquo;</a>-->
-        <!--</p>-->
-    <!--</div>-->
     {% endif %}
 
 
@@ -69,8 +56,8 @@
 
 
         <div class="col-sm-4">
-            <div class="jumbotron jumbotron-get-involved" style="background-color: white   ">
-                <h2>Get involved</h2>
+            <div class="jumbotron" style="background-color: white   ">
+                <h2 id="jumbotron-title-homepage">Get involved</h2>
                 <p><a class="btn btn-primary btn-lg" href="{% url 'posts:add_event' %}" role="button">Create new
                     event &raquo;</a></p>
                 <p><a class="btn btn-primary btn-lg" href="{% url 'posts:add_post' %}" role="button">Create new
