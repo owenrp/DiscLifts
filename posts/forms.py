@@ -48,6 +48,8 @@ class EditPostForm(forms.ModelForm):
         fields = ['event', 'lift_type', 'spaces', 'location', 'leaving_time', 'leaving_date', 'return_date',
                   'fulfilled', 'comments']
         widgets = {
+            # The attrs is a dictionary containing HTML attributes to be set on the rendered widget.
+            # https://docs.djangoproject.com/en/1.10/ref/forms/widgets/#django.forms.Widget.attrs
             'leaving_date': forms.DateInput(attrs={'class': 'datepicker'}),
             'return_date': forms.DateInput(attrs={'class': 'datepicker'}),
         }

@@ -203,7 +203,8 @@ ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
 # userprofile
 AUTH_PROFILE_MODULE= 'userprofile.UserProfile'
 
-DATE_INPUT_FORMATS = ('%d-%m-%Y')
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
+SHORT_DATE_FORMAT = '%d-%m-%Y'
 #
 # # heroku settings
 # # Update database configuration with $DATABASE_URL.
